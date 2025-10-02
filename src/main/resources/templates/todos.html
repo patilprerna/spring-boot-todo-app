@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>My To-Do List</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>My To-Do List</h2>
+        <form th:action="@{/logout}" method="post">
+            <button type="submit" class="btn btn-danger">Logout</button>
+        </form>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <form th:action="@{/todos/add}" th:object="${newTodo}" method="post">
+                <div class="input-group">
+                    <input type="text" th:field="*{title}" class="form-control" placeholder="Add a new task..." required/>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <ul class="list-group">
+        <li th:each="todo : ${todos}" class="list-group-item d-flex justify-content-between align-items-center">
+            <div>
+                <a th:href="@{/todos/update/{id}(id=${todo.id})}">
+                    <input type="checkbox" class="form-check-input me-2" th:checked="${todo.completed}" disabled />
+                    <span th:text="${todo.title}" th:classappend="${todo.completed} ? 'text-decoration-line-through' : ''"></span>
+                </a>
+            </div>
+            <a th:href="@{/todos/delete/{id}(id=${todo.id})}" class="btn btn-sm btn-outline-danger">Delete</a>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
