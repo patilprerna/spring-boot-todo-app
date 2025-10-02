@@ -6,12 +6,12 @@ This is a simple To-Do List application built with Spring Boot, Spring Security,
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/your-username/spring-boot-todo-app.git](https://github.com/your-username/spring-boot-todo-app.git)
+    git clone [https://github.com/patilprerna/spring-boot-todo-app.git](https://github.com/patilprerna/spring-boot-todo-app.git)
     ```
 2.  **Database Setup:**
     - Create a MySQL database named `todo_app_db`.
     - Open `src/main/resources/application.properties`.
-    - Change `spring.datasource.username` and `spring.datasource.password` to your MySQL credentials.
+    - Change `spring.datasource.root` and `spring.datasource.mysql1234` to your MySQL credentials.
 
 3.  **Run the application:**
     - Open the project in your IDE (like IntelliJ IDEA).
